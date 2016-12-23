@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no"> 
+	<title>忘记密码</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/again-code.js"></script>
+	<script type="text/javascript" src="js/mousestyle.js"></script>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<section class="forgetPsw-main">
+		<p class="forgetinfo">请输入<span>185***1356</span>收到的短信验证码</p>
+		<div class="forgetPsw">
+			<input type="text" placeholder="验证码" class="foegetCode" onkeyup="up(this);" onblur="blu(this);">
+			<img src="images/icon_clear.png" alt="" class="close" onclick="cli(this);">
+			<span class="again" style="display:none" onclick="countDown2(this);$('.hint').html('');">重新发送</span>
+			<span class="count" >重新发送(<em id="J_second">60</em>)s</span>
+			<div class="clear"></div>
+		</div>
+		<!-- 验证提示信息 -->
+		<p class="hint"></p>
+		
+		<div class="finish"><button type="button">下一步</button></div>
+		<span class="info3">
+			遇到问题？请<a href="#">联系客服</a>
+		</span>
+	</section>
+	<script type="text/javascript">
+		$(function(){
+			$("button").click(function(){
+				if($(".foegetCode").val()==''){
+					$('.hint').html("请输入验证码！");
+				}else{
+					$('.hint').html("");
+				}
+			});
+			
+		});
+		
+	</script>
+</body>
+</html>

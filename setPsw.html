@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no"> 
+	<title>设置登录密码</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/mousestyle.js"></script>
+</head>
+<body>
+	<section class="setPsw-main">
+		<p class="info1">请设置新的登录密码</p>
+		<div class="setpsw">
+			<input type="text" class="set_Psw" placeholder="6-16位，不能与原密码相同" onkeyup="up(this);" onblur="blu(this);"> 
+			<img src="images/icon_clear.png" alt="" class="close" onclick="cli(this);">
+			<span id="notSee"><img src="images/see.png" alt=""></span>
+			<div class="clear"></div>
+		</div>
+
+		<!-- 验证提示信息 -->
+		<p class="hint">密码设置由6-16位英文字母+数字组合</p>
+
+		<div class="finish"><button type="button">完成</button></div>
+		<span class="info3">
+			遇到问题？请<a href="#">联系客服</a>
+		</span>
+	</section>
+	<script type="text/javascript">
+		$(function(){
+			// 密码是否可见
+			$("#notSee").click(function(){
+				if($(this).html().indexOf("see")>-1){
+					$("#notSee img").attr("src","images/invisible.png");
+					$(".setpsw input").attr("type","password");
+				}else{
+					$("#notSee img").attr("src","images/see.png");
+					$(".setpsw input").attr("type","text");
+				}
+			});
+
+			$("button").click(function(){
+				var psw=$('.set_Psw').val();
+	  			 special=/^[a-zA-Z0-9]{6,16}$/  //验证是否有特殊字符
+	  			 onlyN=/^\d{6,16}$/  //验证是否全是数字
+	  			 onlyZM=/^[a-zA-Z]{6,16}$/  //验证是否全是字母
+	  			// $('.setpsw .close').hide();
+	  			if(!psw){
+					$(".hint").html("请输入密码！"); 
+				    return false;
+				}
+
+	  			if(psw.length<6||psw.length>16){  
+	  				$(".hint").html("密码长度错误！"); 
+	  			}else{
+	  				if(special.test(psw)){
+	  					if(onlyN.test(psw)){
+							$(".hint").html("密码不能全数字！"); 
+						}else if(onlyZM.test(psw)){
+							$(".hint").html("密码不能全字母！"); 
+						}else{
+							$(".hint").html("密码格式正确！"); 
+						}
+					
+					}else{
+						$(".hint").html("密码不能含有特殊字符！"); 
+					}
+				}	
+
+			});
+				
+		});
+			
+	</script>
+</body>
+</html>

@@ -1,0 +1,2093 @@
+@charset "utf-8";
+/*==reset==*/
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+body,button,input,select,textarea{/*font:12px/1.5 tahoma,arial,\5b8b\4f53;*/font-family: "Microsoft YaHei",tahoma,arial,"Hiragino Sans GB","\5b8b\4f53",sans-serif;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+address,cite,dfn,em,var{font-style:normal;}
+code,kbd,pre,samp{font-family:courier new,courier,monospace;}
+small{font-size:12px;}
+ul,ol{list-style:none;}
+a{text-decoration:none;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+legend{color:#000;}
+fieldset,img{border:0;}
+button,input,select,textarea{font-size:100%;}
+table{border-collapse:collapse;border-spacing:0;}
+.clear{display: block; height:0; line-height:0; clear: both; font-size:0; vertical-align:middle; *zoom:1;overflow: hidden; }
+html .hide{display:none;}
+
+html{max-width:750px; min-width:320px;  margin:0 auto;}
+body{max-width:750px; min-width:320px;  margin:0 auto; background-color: #f5f5f5;}
+
+
+/*===通用样式===*/
+/*
+****1.验证提示信息、提交按钮：设置支付密码页、修改手机号页、忘记密码页、登录页、修改登录密码页、
+							设置登录密码页、身份验证页、忘记密码-身份验证页						
+****2.重新发送、重新发送倒计时：修改手机号页、忘记密码页、忘记密码-身份验证页
+****3.联系客服：忘记密码页、设置登录密码页
+*/
+
+/*验证提示信息*/
+.hint{
+	margin-left: 15px;
+	color: #ef5555;
+	font-size: 13px;
+	height:40px;
+	line-height: 40px;
+}
+/*提交按钮灰色*/
+.finish {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 65px;
+    background-image: url(../images/button1.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.finish button {
+    display: block;
+    width: 83%;
+    margin: 0 auto;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    background: none;
+    border: none;
+    outline: none;
+}
+/*提交按钮红色*/
+.toRed{ 
+    background-image: url(../images/button.png);  
+}
+
+/*重新发送*/
+.again{
+	display: inline-block;
+	width:120px;
+	height:36px;
+	text-align: center;
+	line-height: 36px;
+	background-color: #f6b002;
+	border-radius: 5px;
+	font-size: 14px;
+	color: #fff;
+	float: right;
+	margin-right:15px;
+	margin-top:5px;
+}
+/*重新发送倒计时*/
+.count{
+	display: inline-block;
+	width:120px;
+	height:36px;
+	text-align: center;
+	line-height: 36px;
+	background-color: #e7e7e7;
+	border-radius: 5px;
+	font-size: 14px;
+	color: #fff;
+	float: right;
+	margin-right:15px;
+	margin-top:5px;
+}
+
+/*遇到问题联系客服*/
+.info3{
+	color:#999;
+	font-size: 16px;
+	margin-left: 40px;
+	font-size: 13px;
+}
+.info3 a{
+	color:#f6b002;
+	text-decoration: underline;
+	margin:0 5px;
+}
+
+
+
+/*=====================================登录页面 login=========================================*/
+section.login-main{
+	max-width:750px; 
+	min-width:320px; 
+	width:100%; 
+	height:100%;
+	margin:0 auto; 
+	background:url(../images/loginbj_02.png) no-repeat bottom /100% 50%; 
+	padding:0 15px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	border-top:1px solid transparent;
+	background-color: #fff;
+	position: relative;
+}
+/*输入手机号*/
+.phone-input{
+	width:100%;
+	height:45px;
+	line-height: 45px;
+	margin-top:30px;
+	border: 1px solid #eee;	
+	border-radius: 4px;
+	position: relative;
+}
+.phone-input .phoneImg{
+	float: left;
+	margin-left: 10px;
+	width:20px;
+	height:100%;
+}
+.phone-input .phoneImg img{
+	width:20px;
+	margin-top:13px;
+}
+.phone-input input{
+	display: inline-block;
+	float: left;
+	width:60%;
+	height:20px;
+	line-height: 20px;
+	font-size: 14px;
+	margin-top: 13px;
+	margin-left: 10px;
+	border:none;
+	outline: none;
+}
+.phoneclose{
+	position: absolute;
+	top:15px;
+	right:10px;
+	width:18px;
+	display:none;
+}
+/*输入密码*/
+.psw-input{
+	width:100%;
+	height:45px;
+	line-height: 45px;
+	margin-top:15px;
+	border: 1px solid #ececec;
+	border-radius: 4px;
+	position: relative;	
+}
+.psw-input .pswImg{
+	float: left;
+	margin-left: 10px;
+	width:20px;
+	height:100%;
+}
+.psw-input .pswImg img{
+	width:20px;
+	margin-top:13px;
+}
+.psw-input input{
+	display: inline-block;
+	float: left;
+	width:60%;
+	height:20px;
+	line-height: 20px;
+	font-size: 14px;
+	margin-top: 13px;
+	margin-left: 10px;
+	border:none;
+	outline: none;
+}
+.pswclose{
+	position: absolute;
+	top:15px;
+	right:40px;
+	width:18px;
+	display: none;
+}
+.psw-input span{
+	display: inline-block;
+	float: right;
+}
+.psw-input span img{
+	width:17px;
+	margin-right: 10px;
+}
+/*输入验证码*/
+.code-input{
+	width:100%;
+	height:45px;
+	line-height: 45px;
+	margin-top:15px;
+	position: relative;
+	border: 1px solid #eee;	
+	border-radius: 4px;
+	position: relative;
+}
+.code-input .codeImg{
+	float: left;
+	margin-left: 10px;
+	width:20px;
+	height:100%;
+}
+.code-input .codeImg img{
+	display: inline-block;
+	width:20px;
+	margin-top:13px;
+}
+.code-input input{
+	display: inline-block;
+	float: left;
+	width:40%;
+	height:20px;
+	line-height: 20px;
+	font-size: 14px;
+	margin-top: 13px;
+	margin-left: 10px;
+	border:none;
+	outline: none;
+}
+.codeclose{
+	position: absolute;
+	top:13px;
+	right:130px;
+	width:18px;
+	display: none;
+}
+.code-input span.codes{
+	position: absolute;
+	right:35px;
+	top:8px;
+	height:28px;
+	display: inline-block;
+	margin-left:13%;
+}
+.code-input span.codes img{
+	width:80px;
+	height:28px;
+}
+.code-input .refresh{
+	position: absolute;
+	top:20%;
+	margin-top: -7px;
+	right:10px;
+	display: inline-block;
+	margin-left: 2%;
+}
+.code-input .refresh img{
+	display: inline-block;
+	width:15px;
+	transition:0.5s all linear;
+	-webkit-transition:0.5s all linear;
+	-moz-transition:0.5s all linear;
+	-ms-transition:0.5s all linear;
+}
+/*验证提示信息*/
+.login-main .hint{
+	float: left;
+	width:70%;
+	height:40px;
+	line-height: 40px;
+	color:#ef5555;
+	font-size: 13px;
+}
+
+/*忘记密码*/
+.login-main .forget{
+	font-size: 13px;
+	color: #555;
+	height:40px;
+	line-height: 40px;
+	float: right;
+}
+
+
+/*验证未通过时按钮的样式*/
+/*.finish {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 65px;
+    background-image: url(../images/button1.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.finish button {
+    display: block;
+    width: 83%;
+    margin: 0 auto;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    background: none;
+    border: none;
+    outline: none;
+}*/
+
+/*验证通过时按钮的样式*/
+/*.toRed{ 
+    background-image: url(../images/button.png);  
+}*/
+
+
+/*了解店商*/
+.login-main .know{
+	display: block;
+	width:100px;
+	text-align: center;
+	height:26px;
+	line-height: 26px;
+	border:1px solid #e7e7e7;
+	border-radius: 13px;
+	margin:0 auto;
+	margin-top:35%;
+	background-color: #fff;
+}
+.login-main .know p{
+	display: block;
+	width:100%;
+	text-align: center;
+	color:#f6b002;
+	font-size: 13px;
+}
+
+@media(min-width:320px) and (max-width:360px){
+	.login-main .know{
+		margin-top: 15%;
+	}
+}
+
+/*==================================设置密码页面 setPsw========================================*/
+.setPsw-main{
+	max-width:750px; 
+	min-width:320px; 
+	width:100%; 
+	height:100%;
+	margin:0 auto; 
+	background-color: #f5f5f5;
+}
+.setPsw-main .info1{
+	display: block;
+	font-size: 15px;
+	color: #555;
+	height:40px;
+	line-height: 40px;
+	padding-top:30px;
+	margin-left: 15px;
+}
+.setpsw{
+	width:100%;
+	height:48px;
+	border-top: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+	background-color: #fff;
+	margin-top:5px;
+	position: relative;
+}
+.setpsw .set_Psw{
+	height:100%;
+	width:70%;
+	line-height: 48px;
+	margin-left: 15px;
+	font-size: 14px;
+	/*color:#c1c1c1;*/
+	outline: none;
+	border:none;
+	float: left;
+}
+.setpsw .close{
+	position: absolute;
+	top:17px;
+	right:50px;
+	width:18px;
+	display: none;
+	
+}
+/*眼睛*/
+.setpsw span#notSee{
+	float: right;
+	margin-right: 16px;
+	height:100%;
+	display: inline-block;
+}
+
+.setpsw #notSee img{
+	display: inline-block;
+	width:20px;
+	margin-top:18px;
+}
+
+/*验证提示信息*/
+
+
+/*联系客服*/
+.info3{
+	color:#999;
+	font-size: 16px;
+	margin-left: 40px;
+	font-size: 13px;
+}
+.info3 a{
+	color:#f6b002;
+	text-decoration: underline;
+	margin:0 5px;
+}
+
+
+/*================================忘记密码 forgetPsw页面=================================*/
+.forgetPsw-main{
+	max-width:750px; 
+	min-width:320px; 
+	width:100%; 
+	height:100%;
+	margin:0 auto; 
+	background-color: #f5f5f5;
+}
+.forgetPsw-main .forgetinfo{
+	color:#ef5555;
+	font-size: 13px;
+	height:40px;
+	line-height: 40px;
+	padding-top:30px;
+	margin-left: 15px;
+}
+.forgetPsw{
+	width:100%;
+	height:48px;
+	line-height: 48px;
+	border-top: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+	background-color: #fff;
+	margin-top:5px;
+	position: relative;
+	
+}
+.forgetPsw .foegetCode{
+	height:100%;
+	width:40%;
+	line-height: 48px;
+	margin-left: 15px;
+	font-size: 14px;
+	/*color:#c1c1c1;*/
+	outline: none;
+	border:none;
+	float: left;
+}
+.forgetPsw img.close{
+	position: absolute;
+	top:16px;
+	right:145px;
+	width:18px;
+	display: none;
+}
+
+/*验证提示*/
+
+
+
+/*==========================忘记密码 身份验证 verify-forgetpsw ===========================*/
+/*verify-forgetpsw页面样式与忘记密码页面 forgetPsw 一样*/
+
+
+
+/*=================================设置 set页面============================================*/
+section.set-main{
+	max-width:750px; 
+	min-width:320px; 
+	width:100%; 
+	height:100%;
+	margin:0 auto; 
+	background-color: #f5f5f5;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	border:1px solid transparent;
+}
+.set{
+	width:100%;
+	margin-top:10px;
+}
+.set li{
+	height:48px;
+	line-height: 48px;
+	width:100%;
+	background-color: #fff;
+	position: relative;
+	
+}
+.set li .Imgbox{
+	position: absolute;
+	width:30px;
+	height:48px;
+	z-index:10;
+}
+.set li img.icon{
+	display: inline-block;
+	width:15px;
+ 	vertical-align:middle;
+ 	margin-left:15px;
+}
+.set li p{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	display: inline-block;
+	padding-left: 40px;
+	font-size: 14px;
+	color: #555;
+	height:48px;
+	line-height: 48px;
+	width:100%;	
+	overflow: hidden;
+	position: relative;
+}
+.set li p a{
+	float: right;
+}
+.set li p img{
+	
+	margin-right: 15px;
+	width:8px;
+	margin-top:15px;
+}
+.set p i{
+	display: inline-block;
+	width:100%;
+	height:1px;
+	position: absolute;
+	bottom: 0;
+	left:40px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+
+
+/*===================================积分首页 integral====================================*/
+section.integral-main{
+	max-width:750px; 
+	min-width:320px; 
+	width:100%; 
+	height:100%;
+	margin:0 auto; 
+	background-color: #f5f5f5;
+}
+.integral-top{
+	width:100%;
+	height:150px;
+	background:url(../images/total_bg.png) no-repeat bottom / 100% 100%;
+	
+	position: relative;
+}
+.integral-top .record{
+	margin-top:10px;
+	display: inline-block;
+	float: right;
+	width:55px;
+	padding-left: 20px;
+	height:40px;
+	line-height: 40px;
+	margin-right: 15px;
+	font-size: 13px;
+	color:#fff;
+	background:url(../images/total_num.png) no-repeat left center / 13px;
+}
+.integral-top .intrInfo{
+	width:100px;
+	text-align: center;
+	height:62px;
+	color:#fff;
+	font-size: 13px;
+	position: absolute;
+	top:50%;
+	left:50%;
+	margin-top:-20px;
+	margin-left: -50px;
+}
+.integral-top .intrInfo span{
+	display: inline-block;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+/*integral-content积分记录内容*/
+.integral-content{
+	width:100%;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	background-color: #fff;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	padding-left:15px;
+}
+.integral-content li{
+	width:100%;
+	height:75px;
+	overflow: hidden;
+	border-bottom: 1px solid #e0e0e0;
+}
+.integral-content .Imgbox{
+ 	width:36px;
+	height:75px;
+	line-height: 75px;
+	float: left;
+}
+.integral-content .Imgbox img{
+ 	width:36px;
+ 	vertical-align: middle;
+}
+.integral-content p{
+	float: left;
+	display: block;
+	margin-left:8px;
+	color:#555;
+	font-size: 16px;
+	margin-top:20px;
+
+}
+.integral-content p span{
+	color:#999;
+	font-size: 13px;
+}
+.integral-content .exchange{
+	float: right;
+	margin-right: 15px;
+	width:60px;
+	height:30px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 14px;
+	color: #ef5555;
+	border:1px solid #ef5555;
+	border-radius: 5px;
+	margin-top:23px;
+}
+
+/*积分不足时兑换的样式*/
+.integral-content .toGray{
+	color: #999;
+	border:1px solid #999;
+}
+
+
+/*==================================消息中心 message-center================================*/
+section.message-main{
+	max-width:750px; 
+	min-width:320px; 
+	width:100%; 
+	height:100%;
+	margin:0 auto; 
+	background-color: #f5f5f5;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	border:1px solid transparent;
+}
+.mess-center{
+	margin: 10px 0;
+	background-color: #fff;
+}
+.mess-center li{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	border-left: 2px solid #f6b002;
+	height:70px;
+	width:100%;
+	margin-top:1px;
+	padding-left:15px;
+	
+}
+.mess-center .infrom{
+	width:100%;
+	height:40px;
+	line-height: 40px;
+	/*margin-top:10px;*/
+	overflow: hidden;
+	position: relative;
+}
+.mess-center .infrom p{
+	display: inline-block;
+	float: left;
+	font-size: 15px;
+	color: #555;
+}
+/*小红点*/
+.mess-center .infrom .dot{
+	display: inline-block;
+	width:8px;
+	height:8px;
+	background-color: #ef5555;
+	border-radius: 50%;
+	position: absolute;
+	top:8px;
+	left:62px;
+}
+
+/*通知时间*/
+.mess-center .infrom em{
+	float: right;
+	color: #c1c1c1;
+	font-size: 13px;
+	margin-right: 15px;
+}
+
+/*消息内容*/
+.mess-center .mess-info{
+	width:100%;
+	height:29px;
+	border-bottom:1px solid #e0e0e0;
+	
+}
+.mess-center .mess-info p{
+	font-size: 14px;
+	color: #888;
+	width:100%;
+	height:15px;
+	line-height: 15px;
+	text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    padding-right: 15px;
+    box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+
+}
+
+
+/*==============================消息详情 message-details===============================*/
+section.details-main{
+	max-width:750px; 
+	min-width:320px; 
+	width:100%; 
+	height:100%;
+	margin:0 auto; 
+	background-color: #f5f5f5;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	border:1px solid transparent;
+}
+.mess-detail{
+	background-color: #fff;
+	border-radius: 8px;
+	margin:10px 8px;
+	position: relative;
+}
+
+.detailTop{
+	height:80px;
+	position: relative;
+}
+.detailTop i{
+	display: block;
+	width:92%;
+	height:1px;
+	border-bottom: 1px dashed #dcdcdc;
+	position: absolute;
+	bottom:0; 
+	left:15px;
+}
+.detailTop p{
+	display: block;
+	width:130px;
+	margin:0 auto;
+	height:50px;
+	text-align: center;
+	font-size: 18px;
+	color: #555;
+	padding-top:15px;
+}
+.detailTop p span{
+	font-size: 13px;
+	color: #c1c1c1;
+}
+.detailTop p em{
+	font-size: 13px;
+	color: #c1c1c1;
+	margin-left:5px;
+}
+/*消息内容*/
+.detailDown{
+	padding: 25px 15px 30px 15px;
+	min-height: 300px;
+}
+.detailDown p{
+	font-size: 13px;
+	color:#888;
+	line-height: 20px;
+}
+
+/**/
+.mess-detail .circleL{
+	width:12px;
+	height:12px;
+	border-radius: 50%;
+	background-color: #f5f5f5;
+	position: absolute;
+	top:75px;
+	left:-6px;
+}
+.mess-detail .circleR{
+	width:12px;
+	height:12px;
+	border-radius: 50%;
+	background-color: #f5f5f5;
+	position: absolute;
+	top:75px;
+	right:-6px;
+}
+
+
+/*====================================我的 my=========================================*/
+.my-main{
+	max-width:750px; 
+	min-width:320px; 
+	width:100%; 
+	height:100%;
+	margin:0 auto; 
+	background-color: #f5f5f5;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	/*border:1px solid transparent;*/
+}
+/*头部*/
+.my-main .my-top{
+	width:100%;
+	height:200px;
+	background:url(../images/my_topbg.png) no-repeat top /100% 100%;
+	background-color: #fff;
+}
+/*用户头像*/
+.my-top .myHead{
+	display: inline-block;
+	width:70px;
+	height:70px;
+	margin-top:25px;
+	margin-left:10px;
+	float: left;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.my-top .myHead .myImg{
+	display: inline-block;
+	width:100%;
+}
+
+/*用户类别*/
+.my-top .pb{
+	float: left;
+	margin-top:40px;
+	margin-left:10px;
+}
+.my-top .myPhone{
+	display: block;
+	font-size: 16px;
+	color:#fff;
+}
+.my-top .myType{
+	display: block;
+	font-size: 12px;
+	color: #fed1d1;
+}
+
+/*余额、优惠券、积分*/
+.my-top .myMage{
+	width:100%;
+	height:50px;
+	overflow: hidden;
+	margin-top:25px;
+}
+.my-top .myMage li{
+	float: left;
+	width:33.33%;
+	text-align: center;
+	color: #fff;
+}
+.my-top .myMage li p{
+	font-size: 16px;
+	font-weight: bold;
+}
+.my-top .myMage li span{
+	font-size: 13px;
+}
+
+/**/
+.my-content{
+	width:100%;
+	margin-bottom: 80px;
+}
+
+/*我的订单*/
+.my-order{
+	width:100%;
+	height:40px;
+	background-color: #fff;
+	border-bottom: 1px solid #f0f0f0;
+}
+.my-order p{
+	float: left;
+	height:40px;
+	line-height: 40px;
+	width:70px;
+	font-size: 15px;
+	color: #555;
+	padding-left: 20px;
+	margin-left: 15px;
+	background:url(../images/order.png) no-repeat left center/14px;
+}
+.my-order a{
+	float: right;
+	color: #c3c3c3;
+	font-size: 13px;
+	height:40px;
+	line-height: 40px;
+}
+.my-order a img{
+	width:7px;
+	margin:0 15px 0 8px;
+	display: inline-block;
+
+}
+
+/*待支付、已支付、已完成、
+我的货架、消息、设置*/
+.menutop{
+	background:#fff;
+	width:100%;
+	height:80px;
+}
+.menutop li{
+	width:33.333%;
+	text-align: center;
+	height:100%;
+	float: left;
+}
+.menutop li a{
+	display: block;
+	width:100%;
+	height:100%;
+	position: relative;
+
+}
+.menutop li img{
+	width:23px;
+	margin-top:20px;
+}
+.menutop li span{
+	display: inline-block;
+	width:16px;
+	height:16px;
+	line-height: 16px;
+	text-align: center;
+	border-radius: 50%;
+	border:1px solid #ef5555;
+	font-size: 10px;
+	color:#ef5555;
+	background-color: #fff;
+	position: absolute;
+	top:12px;
+	left:53%;
+
+}
+.menutop li p{
+	color: #999;
+	font-size: 13px;
+}
+
+/*联系客服*/
+.my-contact{
+	width:100%;
+	height:40px;
+	background-color: #fff;
+	margin-top: 10px;
+	border-bottom: 1px solid #f0f0f0;
+}
+.my-contact p{
+	float: left;
+	height:40px;
+	line-height: 40px;
+	width:70px;
+	font-size: 15px;
+	color: #555;
+	padding-left: 20px;
+	margin-left: 15px;
+	background:url(../images/icon7.png) no-repeat left center / 15px;
+}
+.my-contact a{
+	float: right;
+	color: #c3c3c3;
+	font-size: 13px;
+	height:40px;
+	line-height: 40px;
+}
+.my-contact a img{
+	width:7px;
+	margin:0 15px 0 8px;
+	display: inline-block;
+
+}
+/*底部*/
+footer.footer{
+	z-index:1000;
+	position:fixed;
+	bottom:0;
+	min-width:320px; 
+	max-width:750px; 
+	width:100%; 
+	height:53px;
+	background:#fff;
+	border-top:1px solid #e1e1e1;
+}
+.footer ul{
+	width:100%;
+}
+.footer ul li{
+	float: left;
+	width:20%;
+	text-align: center;
+	height:53px;
+}
+.footer ul li a{
+	display: inline-block;
+	width:100%;
+	height:100%;
+	position: relative;
+}
+.footer ul li img{
+	display: inline-block;
+	width:22px;
+	margin-top:5px;
+}
+.footer ul li img.active{
+	width:56px;
+	position: absolute;
+	top:-25px;
+	left:50%;
+	margin-left: -26px;
+
+}
+.footer ul li p{
+	display: block;
+	color:#999;
+	font-size: 12px;
+}
+.footer ul li span{
+	display: inline-block;
+	width:20px;
+	height:15px;
+	text-align: center;
+	line-height: 15px;
+	border-radius: 10px;
+	font-size: 8px;
+	color: #fff;
+	background-color: #ef5555;
+	position: absolute;
+	top:3px;
+	left:54%;
+}
+.footer ul li.current a p{
+	color: #ef5555;
+}
+
+
+/*==================================重置密码 resetPsw===================================*/
+section.resetPsw-main{
+	max-width:750px; 
+	min-width:320px; 
+	width:100%; 
+	margin:0 auto; 
+	background-color: #f5f5f5;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	border-top:1px solid transparent;
+}
+.resetPsw{
+	margin-top: 20px;
+	width:100%;
+}
+.resetPsw .reBox,.resetPsw .neBox{
+	width:100%;
+	position: relative;	
+}
+.resetPsw img{
+	position: absolute;
+	top:15px;
+	right:15px;
+	width:18px;
+	display: none;
+}
+.resetPsw input{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	width:100%;
+	height:50px;
+	line-height: 50px;
+	display: block;
+	font-size: 13px;
+	padding-left: 15px;
+	outline: none;
+	border:none;
+	background-color: #fff;
+}
+.resetPsw .oldPsw{
+	border-top:1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+}
+.resetPsw .newPsw{
+	border-bottom: 1px solid #e7e7e7;
+}
+/*验证提示*/
+
+
+/*====================================个人资料 personal=====================================*/
+section.personal-main{
+	min-width:320px; 
+	max-width:750px; 
+	width:100%; 
+	margin:0 auto;
+	border:1px solid transparent;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;	
+}
+.personal{
+	background-color: #fff;
+	width:100%;
+	margin-bottom: 40px;
+}
+.personal-main .per{
+	height:55px;
+	line-height: 55px;
+	margin-left: 15px;
+	border-bottom: 1px solid #e0e0e0;
+
+}
+.personal-main .per p{
+	display: inline-block;
+	font-size: 14px;
+	color: #555;
+	width:80px;
+	text-align: left;
+
+}
+.personal-main .per span{
+	font-size: 13px;
+	color: #555;
+	display: inline-block;
+}
+.personal-main .per img{
+	float: right;
+	margin-right: 15px;
+	display: inline-block;
+	width:8px;
+	margin-top:18px;
+}
+.personal-main .per input{
+	display: inline-block;
+	border:none;
+	background-color: #fff;
+	width:55%;
+	list-style: 55px;
+	font-size: 13px;
+	color: #555;
+	outline: none;
+}
+.personal-main .perPhone input{
+	color:#a1a1a2;
+}
+
+
+
+/*===================================身份验证  verification====================================*/
+section.verifict-main{
+	min-width:320px; 
+	max-width:750px; 
+	width:100%; 
+	margin:0 auto;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	border:1px solid transparent;
+
+}
+.verifict-main p.title{
+	display:block;
+	color: #999;
+	font-size: 13px;
+	margin-top:15px;
+	margin-left:15px;
+	height:20px;
+	line-height: 20px;
+}
+.verifict-main span{
+	display: block;
+	height:30px;
+	line-height: 30px;
+	color: #555;
+	font-size: 14px;
+	margin-left:15px;
+	margin-top:10px;
+}
+.verifict-main .inputBox{
+	height:45px;
+	width:90%;
+	margin:0 auto;
+	margin-top:10px;
+}
+.verifict-main .inputBox input{
+	float: left;
+	width:16.2%;
+	text-align: center;
+	height:25px;
+	padding:10px 0;
+	line-height: 45px;
+	font-size: 35px;
+	border:none;
+	outline: none;
+	border-left:1px solid #d7d7d7;
+	background-color: #fff;
+	border-top:1px solid #d7d7d7;
+	border-bottom:1px solid #d7d7d7;
+}
+/*验证*/
+
+
+/*=================================修改手机号 alterPhone==================================*/
+.alterPhone-main{
+	min-width:320px; 
+	max-width:750px; 
+	width:100%; 
+	margin:0 auto;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	border:1px solid transparent;
+}
+.alterPhone-main .albox{
+	width:100%;
+	margin-top:20px;
+	background-color: #fff;
+}
+.albox .newPhone{
+	width:100%;
+	height:45px;
+	line-height: 45px;
+	border-top:1px solid #d7d7d7;
+	border-bottom:1px solid #d7d7d7;
+	position: relative;
+
+}
+.albox .newPhone input{
+	height:20px;
+	line-height: 20px;
+	width:100%;
+	border:none;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	padding-left: 15px;
+	font-size: 13px;
+	outline: none;
+}
+.albox .newPhone img{
+	width:18px;
+	position: absolute;
+	right:15px;
+	top:15px;
+	display: none;
+}
+.albox .codeBox{
+	height:45px;
+	line-height: 45px;
+	width:100%;
+	border-bottom:1px solid #d7d7d7;
+	position: relative;
+}
+.albox .codeBox input{
+	height:20px;
+	line-height: 20px;
+	width: 40%;
+	margin-left: 15px;
+	border:none;
+	font-size: 13px;
+	outline: none;
+}
+.albox .codeBox img{
+	width:18px;
+	position: absolute;
+	right:155px;
+	top:15px;
+	display: none;
+}
+
+/*获取短信验证码*/
+.albox .getInfo{
+	display: inline-block;
+	width:120px;
+	height:36px;
+	text-align: center;
+	line-height: 36px;
+	background-color: #e7e7e7;
+	border-radius: 5px;
+	font-size: 14px;
+	color: #fff;
+	float: right;
+	margin-right:15px;
+	margin-top:5px;
+
+}
+/*重新发送*/
+.albox .again{
+	display: inline-block;
+	width:120px;
+	height:36px;
+	text-align: center;
+	line-height: 36px;
+	background-color: #f6b002;
+	border-radius: 5px;
+	font-size: 14px;
+	color: #fff;
+	float: right;
+	margin-right:15px;
+	margin-top:5px;
+}
+/*重新发送倒计时*/
+.albox .count{
+	display: inline-block;
+	width:120px;
+	height:36px;
+	text-align: center;
+	line-height: 36px;
+	background-color: #e7e7e7;
+	border-radius: 5px;
+	font-size: 14px;
+	color: #fff;
+	float: right;
+	margin-right:15px;
+	margin-top:5px;
+
+}
+.alterPhone-main .alterTit{
+	display: block;
+	color: #999;
+	font-size: 13px;
+	line-height: 20px;
+	padding:15px;
+}
+/*验证提示*/
+
+
+
+
+/*=================================优惠券 coupon-main===================================*/
+.coupon-main{
+	min-width:320px; 
+	max-width:750px; 
+	width:100%;
+	margin:0 auto;
+}
+/*优惠券菜单*/
+.coupon-main .cou-nav{
+	z-index:1000;
+	position: fixed;
+	top:0;
+	min-width:320px; 
+	max-width:750px; 
+	width:100%;
+	margin:0 auto;
+	height:44px;
+	line-height: 44px;
+	background-color: #fff;
+	border-bottom: 1px solid #d7d7d7;
+	overflow: hidden;
+}
+.coupon-main .cou-nav li{
+	float: left;
+	width:25%;
+	text-align: center;
+}
+
+.coupon-main .cou-nav a{
+	display: inline-block;
+	color:#555;
+	font-size: 14px;
+	width:100%;
+	position: relative;
+}
+/*选中的菜单样式*/
+.coupon-main .cou-nav li.on a{
+	color:#ef5555;
+}
+.coupon-main .cou-nav li.on i{
+	display: block;
+	width:80%;
+	border-bottom: 2px solid #ef5555;
+	position: absolute;
+	bottom: 1px;
+	left:10%;
+}
+
+.coupon{
+	width:100%;
+	margin-top:60px;
+	margin-bottom: 15px;
+}
+.coupon .content{
+	padding:0 8px;
+	display: none;
+}
+.content ul{
+	width:100%;
+}
+.content ul li{
+	width:100%;
+	height:130px;
+	margin-top:15px;
+	background-color: #fff;
+	border-radius: 5px;
+	overflow: hidden;
+	position: relative;
+}
+.content .dotT{
+	position: absolute;
+	top:-5px;
+	left:105px;
+	width:10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #f5f5f5;
+}
+.content .dotD{
+	position: absolute;
+	bottom:-5px;
+	left:105px;
+	width:10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #f5f5f5;
+}
+.content .left{
+	width:100px;
+	padding:0 5px;
+	height:100%;
+	text-align: center;
+	background:url(../images/coupon.png) no-repeat left center / 10px 130px;
+	border-right: 1px dashed #cecece;
+	position: absolute;
+	top:0;
+	left: 0;
+
+}
+/*价格*/
+.content .left h2{
+	color: #ef5555;
+	font-size: 15px;
+	padding-top:34px;
+	margin-left: 5px;
+}
+.content .left h2 span{
+	font-size: 33px;
+}
+.content .left p{
+	color:#a1a1a2;
+	font-size: 13px;
+	margin-left: 5px;
+}
+.content .right{
+	height:100%;
+	padding:5px 5px 5px 120px;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	width:100%;
+}
+.content .right h2{
+	color: #ef5555;
+	font-size: 16px;
+	height:30px;
+	line-height: 30px;
+	margin-top:5px;
+}
+.content .right p{
+	color: #888;
+	font-size:13px;
+	height:20px;
+	line-height: 20px;
+}
+.content .right p.Rtime{
+	color: #a1a1a2;
+	margin-top:5px;
+}
+/*已过期*/
+.content2 .left,.content3 .left,.content4 .left{
+	background:url(../images/coupongray.png) no-repeat left center / 10px 130px;
+}
+.content2 .left h2,.content3 .left h2,.content4 .left h2{
+	color: #a1a1a2;
+}
+.content2 .right h2,.content3 .right h2,.content4 .right h2{
+	color: #a1a1a2;
+}
+
+
+
+
+/*===============================设置支付密码 alterPayPsw-main===================================*/
+.alterPayPsw-main{
+	min-width:320px; 
+	max-width:750px; 
+	width:100%; 
+}
+.alterPayPsw-main p.title{
+	font-size: 13px;
+	color: #999;
+	padding-left: 15px;
+	padding-top: 15px;
+}
+.alterPayPsw-main span{
+	display: block;
+	color: #555;
+	font-size: 14px;
+	height:20px;
+	list-style: 20px;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+.alterPayPsw-main span em{
+	color: #999;
+	font-size: 13px;
+}
+.alterPayPsw-main .pswBox{
+	height: 45px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+
+}
+.alterPayPsw-main .pswBox input{
+	float: left;
+    width: 16.2%;
+    text-align: center;
+    height: 100%;
+    line-height: 45px;
+    font-size: 35px;
+    border: none;
+    outline: none;
+    border-left: none;
+    border-left: 1px solid #d7d7d7;
+    background-color: #fff;
+    border-top: 1px solid #d7d7d7;
+    border-bottom: 1px solid #d7d7d7;
+}
+/*验证*/
+
+
+/*==================================积分记录 creditsLog-main==================================*/
+.creditsLog-main{
+	min-width:320px; 
+	max-width:750px; 
+	width:100%; 
+	height:100%;
+	margin:0 auto;
+	background-color: #fff;
+}
+/*头部菜单*/
+.log-nav{
+	z-index: 1000;
+	min-width:320px; 
+	max-width:750px; 
+	width:100%;
+	margin:0 auto;
+	overflow:hidden;
+	border-bottom: 1px solid #d7d7d7;
+	background-color: #fff;
+	position: fixed;
+	top:0;
+}
+.log-nav li{
+	width:33.333%;
+	text-align: center;
+	height:45px;
+	line-height: 45px;
+	float: left;
+
+}
+.log-nav li a{
+	display: inline-block;
+	color: #a1a1a2;
+	font-size: 13px;
+	position: relative;
+	width:100%;
+}
+
+
+/*选中的菜单样式*/
+.log-nav li.on a{
+	color: #ef5555;
+}
+.log-nav li.on a i{
+	width:60%;
+	border-bottom: 2px solid #ef5555;
+	position: absolute;
+	bottom: 1px;
+	left: 20%;
+}
+
+/*总积分*/
+.creditsLog-main .cretol{
+	width:100%;
+	background-color: #f5f5f5;
+	overflow: hidden;
+}
+.creditsLog-main .cretol h2{
+	float: right;
+	display: block;
+	height:35px;
+	line-height: 35px;
+	font-size: 13px;
+	padding-right: 15px;
+	padding-left: 20px;
+	font-weight: normal;
+	color:#999;
+	background: url(../images/total_gray.png) no-repeat left center/13px 15px;
+	
+}
+
+/*积分记录内容*/
+.creditsLog-main .contentBox{
+	width:100%;
+	margin-top:45px;
+}
+.contentBox .log-content{
+	display: none;
+	width:100%;
+	background-color: #fff;
+}
+.contentBox ul{
+	width:100%;
+}
+.contentBox ul li{
+	width:100%;
+	height: 75px;
+	position: relative;
+}
+.contentBox ul .left{
+	position: absolute;
+	top:0;
+	left:15px;
+	width:60px;
+	height:75px;
+	line-height: 75px;
+}
+.contentBox ul .left img{
+	display: inline-block;
+	width:40px;
+	vertical-align: middle;
+}
+.contentBox ul .right{
+	width:100%;
+	height:100%;
+	overflow: hidden;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	position: relative;
+	padding:20px 0 20px 70px;
+}
+.contentBox ul .right h2{
+	font-weight: normal;
+	color: #555;
+	font-size: 14px;
+	height:20px;
+	line-height: 20px;
+	display: block;
+	
+	padding-right: 15px;
+}
+.contentBox ul .right em{
+	float: right;
+	color: #ef5555;
+}
+.contentBox ul .right p{
+	color:#b6b6b6;
+	font-size: 13px;
+}
+.contentBox ul .right i{
+	display: block;
+	height: 1px;
+	width:100%;
+	position: absolute;
+	bottom: 1px;
+	left:70px;
+	border-bottom: 1px solid #d7d7d7;
+}
+/*下拉刷新*/
+.pull-down{
+	width:100%;
+	text-align: center;
+
+}
+.pull-down p{
+	display: inline-block;
+	color:#999;
+	font-size: 13px;
+	height:20px;
+	line-height: 20px;
+	margin-top:20px;
+	margin-bottom: 20px;
+}
+
+/*================================全部订单 allOrder======================================*/
+.allOrder-main{
+	max-width:750px; 
+	min-width:320px; 
+	margin:0 auto; 
+	width:100%;
+	background-color: #f5f5f5;
+}
+/*==header==*/
+header.h-order{ 
+	max-width:750px; 
+	min-width:320px; 
+	width:100%; 
+	margin:0 auto;
+	height:45px;
+	background:#fff;
+	position: fixed;
+	top:0;
+	z-index:1000;
+}
+/*菜单*/
+.h-order .order-nav{
+	min-width:320px; 
+	max-width:750px; 
+	width:100%;
+	
+	margin:0 auto;
+	height:44px;
+	line-height: 44px;
+	background-color: #fff;
+	border-bottom: 1px solid #d7d7d7;
+	overflow: hidden;
+}
+.h-order .order-nav li{
+	float: left;
+	width:25%;
+	text-align: center;
+}
+
+.h-order .order-nav li a{
+	display: inline-block;
+	color:#555;
+	font-size: 14px;
+	width:100%;
+	position: relative;
+}
+/*数量*/
+.h-order .order-nav li span{
+	display: inline-block;
+	width:15px;
+	height:15px;
+	text-align: center;
+	line-height: 15px;
+	font-size: 10px;
+	border-radius: 50%;
+	color: #de1919;
+	border: 1px solid #de1919;
+	position: absolute;
+	top:4px;
+	left:65%;
+}
+/*选中的菜单样式*/
+.order-nav li.on a{
+	color:#ef5555;
+}
+.order-nav li.on i{
+	display: block;
+	width:80%;
+	border-bottom: 2px solid #ef5555;
+	position: absolute;
+	bottom: 1px;
+	left:10%;
+}
+
+/*===订单展示====*/
+section.orderShow{
+	min-width:320px; 
+	max-width:750px; 
+	width:100%;
+	margin-top:55px;
+	margin-bottom: 15px;
+}
+.orderList{
+	width:100%;
+	background:#fff;
+	margin-top:15px;
+}
+.orderList .title{
+	display: inline-block;
+	width:100%;
+	height:40px;
+	line-height: 40px;
+	font-size: 13px;
+	color: #333;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding:0 15px;
+	border-top:1px solid #d7d7d7;
+	border-bottom:1px solid #d7d7d7;
+}
+.orderList .title em{
+	display: inline-block;
+	float: right;
+	color:#de1919;
+}
+.orderList .listBox{
+	overflow: hidden;
+}
+.orderList .list01{
+	width:100%;
+	height:110px;
+	overflow: hidden;
+	position: relative;
+	border-bottom: 1px solid #d7d7d7;
+	padding-top:5px;
+}
+.list01 .left{
+	position: absolute;
+	top:10px;
+	left:10px;
+}
+.list01 .left img.imgdown{
+	width:90px;
+}
+.list01 .right{
+	width:100%;
+	height:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding-left:115px;
+	padding-right:15px;
+
+}
+.list01 .right a{
+	float: left;
+	display: inline-block;
+	font-size: 13px;
+	color:#333;
+	text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+   	margin-top:10px;
+    width:65%;
+
+}
+.list01 .right .price{
+	float: right;
+	width:60px;
+	margin-top:10px;
+	color: #666;
+	text-align: right;
+}
+.list01 .right .price span{
+	display: block;
+	font-size: 16px;
+	color:#333;
+}
+.list01 .right .price em{
+	display: inline-block;
+	color: #666;
+}
+.orderList .pay{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding:15px;
+	width:100%;
+	height:90px;
+	border-bottom:1px solid #d7d7d7;
+	text-align: right;
+}
+.orderList .pay .pTotal{
+	display: block;
+	font-size: 13px;
+	color: #333;
+}
+.orderList .pay .pTotal em{
+	color: #de1919;
+	font-size: 14px;
+	font-weight: bold;
+}
+.orderList .pay .payMomey{
+	float:right;
+	display: block;
+	border:1px solid #de1919;
+	width:75px;
+	height:30px;
+	text-align: center;
+	line-height: 30px;
+	color:#de1919;
+	font-size: 13px;
+	border-radius: 5px;
+	margin-top:10px;
+}
+/*订单距离取消时间*/
+.endTime{
+	width:100%;
+	font-size: 13px;
+	color: #333;
+	height:35px;
+	line-height: 35px;
+	background-color: #fff0be;
+	text-align: center;
+}
+.endTime p{
+	display: inline-block;
+	width:13px;
+	height:13px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 13px;
+	border:1px solid #ebcd75;
+	color:#ebcd75;
+	margin-right:5px;
+}
+.endTime .timeBox{
+	color:#de1919;
+	display: inline-block;
+}
+.endTime em{
+	display: inline-block;
+	margin:0 2px;
+	
+}
+
+.list01 .left a{
+	display: block;
+	position: relative;
+}
+/*秒杀*/
+.list01 .left .seckill-top{
+	position: absolute;
+	top:0;
+	left:0;
+	width:45px;
+	height:45px;
+	background: url(../images/icons.png) no-repeat left top / 145px 45px;
+    background-position: 0px 0px;
+}
+/*满减*/
+.list01 .left .full-top{
+	position: absolute;
+	top:0%;
+	left:0;
+	width:45px;
+	height:45px;
+	background: url(../images/icons.png) no-repeat left top / 145px 45px;
+    background-position: -51px 0px;
+}
+/*折扣*/
+.list01 .left .discount-top{
+	position: absolute;
+	top:0%;
+	left:0;
+	width:45px;
+	height:45px;
+	background: url(../images/icons.png) no-repeat left top / 145px 45px;
+    background-position: -102px 0px;
+}
+
+.orderList .seeSure{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding:15px;
+	width:100%;
+	height:90px;
+	border-bottom:1px solid #d7d7d7;
+	text-align: right;
+}
+.orderList .seeSure .pTotal{
+	display: block;
+	font-size: 13px;
+	color: #333;
+}
+.orderList .seeSure .pTotal em{
+	color: #de1919;
+	font-size: 14px;
+	font-weight: bold;
+}
+.orderList .seeSure .sure{
+	float:right;
+	display: block;
+	border:1px solid #de1919;
+	width:75px;
+	height:30px;
+	text-align: center;
+	line-height: 30px;
+	color:#de1919;
+	font-size: 13px;
+	border-radius: 5px;
+	margin-top:10px;margin-left:10px;
+}
+.orderList .seeSure .see{
+	float:right;
+	display: block;
+	border:1px solid #d7d7d7;
+	width:75px;
+	height:30px;
+	text-align: center;
+	line-height: 30px;
+	color:#666;
+	font-size: 13px;
+	border-radius: 5px;
+	margin-top:10px;
+
+}
+/*展示全部*/
+.showAll{
+	width:100%;
+	border-bottom: 1px solid #d7d7d7;
+	text-align: center;
+	font-size: 13px;
+	color:#999;
+}
+.showAll p{
+	display: inline-block;
+	height:45px;
+	line-height: 45px;	
+}
+.showAll em{
+	display: inline-block;	
+}
+.showAll img{
+	margin-left:5px;
+}

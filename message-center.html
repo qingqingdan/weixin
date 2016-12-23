@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no"> 
+	<title>消息中心</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<section class="message-main">
+		<ul class="mess-center">
+			<li>
+				<div class="infrom">
+					<p>中奖通知</p>
+					<span class="dot"></span>
+					<em class="time">11:30</em>
+				</div>
+				<div class="clear"></div>
+				<div class="mess-info">
+					<p >感谢您一直以来对店商互联的支持和信任，您有一张价格为2元的优惠券</p>
+				</div>
+				
+			</li>
+			<li>
+				<div class="infrom">
+					<p>中奖通知</p>
+					<span class="dot"></span>
+					<em class="time">11:30</em>
+				</div>
+				<div class="clear"></div>
+				<div class="mess-info">
+					<p >感谢您一直以来对店商互联的支持和信任，您有一张价格为2元的优惠券</p>
+				</div>
+			</li>
+			<li>
+				<div class="infrom">
+					<p>中奖通知</p>
+					<span class="dot"></span>
+					<em class="time">昨天</em>
+				</div>
+				<div class="clear"></div>
+				<div class="mess-info">
+					<p >感谢您一直以来对店商互联的支持和信任，您有一张价格为2元的优惠券</p>
+				</div>
+			</li>
+			<li>
+				<div class="infrom">
+					<p>中奖通知</p>
+					<span class="dot"></span>
+					<em class="time">2016-08-16</em>
+				</div>
+				<div class="clear"></div>
+				<div class="mess-info" style="border:none;">
+					<p >感谢您一直以来对店商互联的支持和信任，您有一张价格为2元的优惠券</p>
+				</div>
+			</li>
+		</ul>
+	</section>
+	<script type="text/javascript">
+		$(".mess-center").on('click','li',function(){
+			$(this).find('.dot').removeClass("dot");
+		});
+	</script>
+</body>
+</html>

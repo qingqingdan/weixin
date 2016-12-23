@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no"> 
+	<title>设置支付密码</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<section class="alterPayPsw-main">
+		<p class="title">设置支付密码可以保障您的账号安全</p>
+		<span>支付密码<em>(6位数字)</em></span>
+		<div class="pswBox firstPay">
+			<input type="password" >
+			<input type="password">
+			<input type="password">
+			<input type="password">
+			<input type="password">
+			<input type="password" style="border-right:1px solid #d7d7d7;">
+		</div>
+		<div class="clear"></div>
+		<span>确认支付密码</span>
+		<div class="pswBox secondPay">
+			<input type="password">
+			<input type="password">
+			<input type="password">
+			<input type="password">
+			<input type="password">
+			<input type="password" style="border-right:1px solid #d7d7d7;">
+
+		</div>
+		<div class="clear"></div>
+
+		<!-- 验证提示信息 -->
+		<p class="hint"><!-- 修改密码不能与原密码一致 --></p>
+		
+		<div class="finish"><button type="button">完成</button></div>
+	</section>
+	<script type="text/javascript">
+		$("input").attr('maxlength','1');
+		$("input").keyup(function () {
+            //如果输入非数字，则替换为''
+            this.value = this.value.replace(/[^\d]/g,'');
+        });
+       	$('button').click(function(){
+       		var input_s=$('.pswBox input').length/2;
+       		console.log(input_s);
+       		for(var i=0;i<input_s;i++){
+       			
+       		}
+
+       	});
+	</script>
+</body>
+</html>

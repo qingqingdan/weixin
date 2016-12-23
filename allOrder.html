@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no"> 
+	<title>订单列表</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<div class="allOrder-main" id="go0">
+		<header class="h-order">
+			<ul class="order-nav">
+				<li class="on" data-to="go0"><a href="#">全部<i></i></a></li>
+				<li data-to="go1"><a href="#">待支付<span>2</span><i></i></a></li>
+				<li data-to="go2"><a href="#">待收货<span>5</span><i></i></a></li>
+				<li data-to="go3"><a href="#">已完成<i></i></a></li>
+				<div class="clear"></div>
+			</ul>
+		</header>
+		<div class="clear"></div>
+		<section class="orderShow">
+			<!-- 待支付 -->
+			<div class="orderList" id="go1">
+				<span class="title">订单号：12323444CV9 <em>待支付</em></span>
+				<div class="list01">
+					<div class="left">
+						<a href="#"><img src="images/coke1.png" alt="" class="imgdown"></a>
+					</div>
+					<div class="right">
+						<a href="#">正品美国bil.Spring Water黑色矿泉水正品美国黑色矿泉水黑色矿泉水黑色矿泉水</a>
+						<div class="price">
+							<span>￥68.00</span>
+							x<em>1</em>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="list01">
+					<div class="left">
+						<a href="#"><img src="images/coke2.png" alt="" class="imgdown"></a>
+					</div>
+					<div class="right">
+						<a href="#">百事可乐330ml.可乐碳酸饮料</a>
+						<div class="price">
+							<span>￥50.00</span>
+							x<em>5</em>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="pay">
+					<span class="pTotal">实付款：<em>￥318.00</em></span>
+					<a href="#" class="payMomey">去支付</a>
+				</div>
+				<!-- 订单距离取消时间 -->
+				<div class="endTime">
+					<p>!</p>订单距离取消时间还剩 <div class="timeBox"><em time_id="h"></em>:<em time_id="m"></em>:<em time_id="s"></em></div>，请尽快支付!
+				</div>
+				<script type="text/javascript">
+					// 倒计时
+					var tms = 1800;
+					function PrefixInteger(num, length) { return (Array(length).join('0') + num).slice(-length); }
+				    function takeCount() {
+				      	setTimeout("takeCount()", 1000);
+				      	$(".endTime").each(function(){
+				          	var obj = $(this);
+				          	if (tms>0) {
+				              	tms = parseInt(tms)-1;
+				                var hours = PrefixInteger( (Math.floor(tms / (1 * 60 * 60)) % 24),2);
+				                var minutes = PrefixInteger( (Math.floor(tms / (1 * 60)) % 60),2);
+				                var seconds = PrefixInteger( (Math.floor(tms / 1) % 60),2);
+
+				                if (hours < 0) hours = 0;
+				                if (minutes < 0) minutes = 0;
+				                if (seconds < 0) seconds = 0;
+				                obj.find("[time_id='h']").html(hours);
+				                obj.find("[time_id='m']").html(minutes);
+				                obj.find("[time_id='s']").html(seconds);
+				                obj.attr("count_down",tms);
+				          	}
+				      	});
+				  	}
+				  	$(function(){
+				  		setTimeout("takeCount()", 1000);
+				  	});
+					
+  				</script>
+			</div>
+
+			<!-- 待收货 -->
+			<div class="orderList" id="go2">
+				<span class="title">订单号：12323444CV9 <em>待收货</em></span>
+				<div class="listBox">
+					<div class="list01">
+						<div class="left">
+							<a href="#"><img src="images/coke1.png" alt="" class="imgdown"></a>
+						</div>
+						<div class="right">
+							<a href="#">正品美国bil.Spring Water黑色矿泉水正品美国黑色矿泉水黑色矿泉水黑色矿泉水</a>
+							<div class="price">
+								<span>￥68.00</span>
+								x<em>1</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+
+					<!-- 秒杀 -->
+					<div class="list01">
+						<div class="left">
+							<a href="#">
+								<img src="images/coke2.png" alt="" class="imgdown">
+								<div class="seckill-top"></div>
+							</a>
+						</div>
+						<div class="right">
+							<a href="#">百事可乐330ml.可乐碳酸饮料</a>
+							<div class="price">
+								<span>￥50.00</span>
+								x<em>5</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<!-- 折扣 -->
+					<div class="list01">
+						<div class="left">
+							<a href="#" class="seckill">
+								<img src="images/coke1.png" alt="" class="imgdown">
+								<div class="discount-top"></div>
+							</a>
+						</div>
+						<div class="right">
+							<a href="#">百事可乐330ml.可乐碳酸饮料</a>
+							<div class="price">
+								<span>￥50.00</span>
+								x<em>5</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<!--满减 -->
+					<div class="list01">
+						<div class="left">
+							<a href="#">
+								<img src="images/coke1.png" alt="" class="imgdown">
+								<div class="full-top"></div>
+							</a>
+						</div>
+						<div class="right">
+							<a href="#">百事可乐330ml.可乐碳酸饮料</a>
+							<div class="price">
+								<span>￥50.00</span>
+								x<em>1</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+
+				<div class="seeSure">
+					<span class="pTotal">实付款：<em>￥318.00</em></span>
+					<a href="#" class="sure">确认收货</a><a href="#" class="see">查看物流</a>
+				</div>
+			</div>
+
+			<!-- 已完成 -->
+			<div class="orderList" id="go3">
+				<span class="title">订单号：12323444CV9 <em style="color:#888;">已完成</em></span>
+				<div class="listBox">
+					<!-- 满减 -->
+					<div class="list01">
+						<div class="left">
+							<a href="#">
+								<img src="images/coke1.png" alt="" class="imgdown">
+								<div class="full-top"></div>
+							</a>
+						</div>
+						<div class="right">
+							<a href="#">正品美国bil.Spring Water黑色矿泉水正品美国黑色矿泉水黑色矿泉水黑色矿泉水</a>
+							<div class="price">
+								<span>￥68.00</span>
+								x<em>1</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<!-- 折扣 -->
+					<div class="list01">
+						<div class="left">
+							<a href="#" >
+								<img src="images/coke1.png" alt="" class="imgdown">
+								<div class="discount-top"></div>
+							</a>
+						</div>
+						<div class="right">
+							<a href="#">百事可乐330ml.可乐碳酸饮料</a>
+							<div class="price">
+								<span>￥50.00</span>
+								x<em>5</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="list01">
+						<div class="left">
+							<a href="#"><img src="images/coke1.png" alt="" class="imgdown"></a>
+						</div>
+						<div class="right">
+							<a href="#">正品美国bil.Spring Water黑色矿泉水正品美国黑色矿泉水黑色矿泉水黑色矿泉水</a>
+							<div class="price">
+								<span>￥68.00</span>
+								x<em>1</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<!-- 秒杀 -->
+					<div class="list01">
+						<div class="left">
+							<a href="#" class="seckill">
+								<img src="images/coke2.png" alt="" class="imgdown">
+								<div class="seckill-top"></div>
+							</a>
+						</div>
+						<div class="right">
+							<a href="#">百事可乐330ml.可乐碳酸饮料</a>
+							<div class="price">
+								<span>￥50.00</span>
+								x<em>1</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="list01">
+						<div class="left">
+							<a href="#" class="seckill">
+								<img src="images/coke2.png" alt="" class="imgdown">
+								<div class="seckill-top"></div>
+							</a>
+						</div>
+						<div class="right">
+							<a href="#">百事可乐330ml.可乐碳酸饮料</a>
+							<div class="price">
+								<span>￥50.00</span>
+								x<em>1</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="list01">
+						<div class="left">
+							<a href="#" class="seckill">
+								<img src="images/coke2.png" alt="" class="imgdown">
+								<div class="seckill-top"></div>
+							</a>
+						</div>
+						<div class="right">
+							<a href="#">百事可乐330ml.可乐碳酸饮料</a>
+							<div class="price">
+								<span>￥50.00</span>
+								x<em>1</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="seeSure">
+					<span class="pTotal">实付款：<em>￥318.00</em></span>
+					<a href="#" class="sure">再次购买</a><a href="#" class="see">查看物流</a>
+				</div>
+			</div>
+
+			<!-- 已取消 -->
+			<div class="orderList">
+				<span class="title">订单号：12323444CV9 <em style="color:#888;">已取消</em></span>
+				<div class="listBox">
+					<div class="list01">
+						<div class="left">
+							<a href="#"><img src="images/coke1.png" alt="" class="imgdown"></a>
+						</div>
+						<div class="right">
+							<a href="#">正品美国bil.Spring Water黑色矿泉水正品美国黑色矿泉水黑色矿泉水黑色矿泉水</a>
+							<div class="price">
+								<span>￥68.00</span>
+								x<em>1</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<!-- 秒杀 -->
+					<div class="list01">
+						<div class="left">
+							<a href="#" class="seckill">
+								<img src="images/coke2.png" alt="" class="imgdown">
+								<div class="seckill-top"></div>
+							</a>
+						</div>
+						<div class="right">
+							<a href="#">百事可乐330ml.可乐碳酸饮料</a>
+							<div class="price">
+								<span>￥50.00</span>
+								x<em>5</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="list01">
+						<div class="left">
+							<a href="#"><img src="images/coke1.png" alt="" class="imgdown"></a>
+						</div>
+						<div class="right">
+							<a href="#">正品美国bil.Spring Water黑色矿泉水正品美国黑色矿泉水黑色矿泉水黑色矿泉水</a>
+							<div class="price">
+								<span>￥68.00</span>
+								x<em>1</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<!-- 秒杀 -->
+					<div class="list01">
+						<div class="left">
+							<a href="#" class="seckill">
+								<img src="images/coke2.png" alt="" class="imgdown">
+								<div class="seckill-top"></div>
+							</a>
+						</div>
+						<div class="right">
+							<a href="#">百事可乐330ml.可乐碳酸饮料</a>
+							<div class="price">
+								<span>￥50.00</span>
+								x<em>1</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="list01">
+						<div class="left">
+							<a href="#" class="seckill">
+								<img src="images/coke2.png" alt="" class="imgdown">
+								<div class="seckill-top"></div>
+							</a>
+						</div>
+						<div class="right">
+							<a href="#">百事可乐330ml.可乐碳酸饮料</a>
+							<div class="price">
+								<span>￥50.00</span>
+								x<em>1</em>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				
+				<div class="seeSure">
+					<span class="pTotal">实付款：<em>￥318.00</em></span>
+					<a href="#" class="sure">再次购买</a>
+				</div>
+			</div>
+		</section>
+		<script type="text/javascript">
+			$(function(){
+				$(".h-order ul").on("click",'li',function(){
+					// 点击菜单跳到指定位置
+		   			var id=$(this).attr("data-to");
+		            $('html,body').animate({scrollTop:$('#'+id).offset().top-40}, 200);
+
+					$(this).addClass("on").siblings().removeClass("on");
+				});
+
+				$(".orderShow div.orderList").each(function(index, element) { //遍历.orderList
+					var sender = this; //把当前orderlist赋值给sender，方便点击div.showAll时 找到当前对象，div.showAll onclick后 this为div.showAll
+					var num=$(sender).find(".list01").length-2;//获取当前.orderList下的.list01个数
+					if( parseInt(num)>0){//如果存在隐藏的.list01,执行下面方法
+						$(sender).append('<div class="showAll"><p>展示全部</p><em></em><img src="images/Arrows-big_btmGray.png"></div>'); //给div.orderList后追加div.showAll
+
+						$(sender).find(".listBox").attr("style","height:232px");//默认显示2个商品
+
+						$(sender).find("div.showAll em").text('（'+num+'）');
+							$(sender).find("div.showAll").click(function(){
+								if($(this).children("div.showAll p").html().indexOf("展示全部")>-1){
+									$(this).html('<p>收起</p><em></em><img src="images/Arrows-big_topGray.png">');
+									$(sender).find(".listBox").attr("style","height:auto");
+								}else{
+									$(this).html('<p>展示全部</p><em>('+num+')</em><img src="images/Arrows-big_btmGray.png">');
+									$(sender).find(".listBox").attr("style","height:232px");
+								}
+							});
+					}
+	
+				});
+				
+				
+			});
+			
+		</script>
+		
+	</div>
+</body>
+</html>

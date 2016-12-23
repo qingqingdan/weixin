@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no"> 
+	<title>身份验证</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<section class="verifict-main">
+		<p class="title">请输入原支付密码，完成身份验证</p>
+		<span>支付密码</span>
+		<div class="inputBox">
+			<input type="password" maxlength="1">
+			<input type="password" maxlength="1">
+			<input type="password" maxlength="1">
+			<input type="password" maxlength="1">
+			<input type="password" maxlength="1">
+			<input type="password" maxlength="1" style="border-right:1px solid #d7d7d7;" >
+		</div>
+		<div class="clear"></div>
+
+		<!-- 验证提示信息 -->
+		<p class="hint"><!-- 密码输入错误，请重新输入！ --></p>
+
+		<div class="finish"><button type="button">完成</button></div>
+	</section>
+	<script type="text/javascript">
+		$("input").keyup(function () {
+            //如果输入非数字，则替换为''
+            this.value = this.value.replace(/[^\d]/g, '');
+        });
+      
+        $("button").click(function(){
+        	
+        	
+        });
+
+	</script>
+</body>
+</html>

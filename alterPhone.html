@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no"> 
+	<title>修改手机号</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/mousestyle.js"></script>
+	<script type="text/javascript" src="js/again-code.js"></script>
+</head>
+<body>
+	<section class="alterPhone-main">
+		<div class="albox">
+			<!-- 手机号 -->
+			<div class="newPhone">
+				<input type="text" id="phone" placeholder="请输入新的手机号" onkeyup="up(this);" onblur="blu(this);">
+				<img src="images/icon_clear.png" alt="" onclick="cli(this);">
+			</div>
+			<!-- 验证码 -->
+			<div class="codeBox">
+				<input type="text" id="code" placeholder="请输入验证码" onkeyup="up(this);" onblur="blu(this);">
+				<img src="images/icon_clear.png" alt="" onclick="cli(this);">
+				<span class="getInfo" onclick="countDown2(this);">获取短息验证码</span>
+				<span class="again" style="display:none"  onclick="countDown2(this);">重新发送</span>
+				<span class="count" style="display:none">重新发送(<em id="J_second"></em>)s</span>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<p class="alterTit">重要通知：一个账号只能绑定一个手机号，修改成功次设备将绑定新的手机号作为登录账号，无法切换其他账号登录。</p>
+		<!-- 验证提示信息 -->
+		<p class="hint"></p>
+
+		<div class="finish"><button type="button">确认修改</button></div>
+	</section>
+	<script type="text/javascript">
+		$(function(){
+			// 验证手机号、验证码
+			$("button").click(function(){
+				var phone=$(".newPhone input").val();
+				if(phone==''){
+					$('.hint').html("请输入手机号！");
+				}else{
+					var reg=/(1[3-9]\d{9}$)/;
+					if(!reg.test(phone)){
+						$('.hint').html("手机号码格式不正确!");
+					}else{
+						$('.hint').html("");
+						if($("#code").val()==''){
+							$('.hint').html("请输入验证码！");
+						}else{
+							$('.hint').html("");
+						}
+					}
+				}
+			});			
+			
+		});
+	</script>
+</body>
+</html>
